@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     [SerializeField]MonoBehaviour movement;
     [SerializeField]GameObject score;
     [SerializeField]GameObject settingIcon;
+    [SerializeField]LevelCompletion insuff;
     
     
     static bool SkipMenu=false;
@@ -83,6 +84,7 @@ public class UI : MonoBehaviour
     public void Resume()
     {
         Settings.SetActive(false);
+        insuff.Insufficient.SetActive(false);
     }
     
 
