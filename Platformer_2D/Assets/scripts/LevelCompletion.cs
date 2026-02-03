@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LevelCompletion : MonoBehaviour
 {
-    [SerializeField]GameObject levelComplete;
-    [SerializeField]MonoBehaviour movement;
-    [SerializeField]int keysNeeded;
+    [SerializeField] GameObject levelComplete;
+    [SerializeField] MonoBehaviour movement;
+    [SerializeField] int keysNeeded;
+    public GameObject Insufficient;
 
     void Start()
     {
@@ -28,9 +29,9 @@ public class LevelCompletion : MonoBehaviour
             movement.enabled=false;
         }
         }
-        else
+        else if(KeyRotation.score!=keysNeeded) 
         {
-            
+            Insufficient.SetActive(true);
         }
     }
 }
