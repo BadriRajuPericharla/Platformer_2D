@@ -4,19 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField]GameObject MainMenu;
-    [SerializeField]GameObject GameOver;
-    [SerializeField]GameObject Settings;
-    [SerializeField]MonoBehaviour movement;
-    [SerializeField]GameObject score;
-    [SerializeField]GameObject settingIcon;
-    [SerializeField]LevelCompletion insuff;
+    [SerializeField]private GameObject MainMenu;
+    [SerializeField]private GameObject GameOver;
+    [SerializeField]private GameObject Settings;
+    [SerializeField]private MonoBehaviour movement;
+    [SerializeField]private GameObject score;
+    [SerializeField]private GameObject settingIcon;
+    [SerializeField]private LevelCompletion insuff;
+    [SerializeField]private GameObject mobilecontrollerPanel;
     
     
     static bool SkipMenu=false;
     
     void Start()
     {
+        if (Application.isMobilePlatform)
+        {
+            mobilecontrollerPanel.SetActive(true);
+        }
 
         if (SkipMenu && MainMenu!=null)
         {
@@ -83,6 +88,10 @@ public class UI : MonoBehaviour
     }
     public void Resume()
     {
+        if (Application.isMobilePlatform)
+        {
+            mobilecontrollerPanel.SetActive(true);
+        }
         Settings.SetActive(false);
         insuff.Insufficient.SetActive(false);
     }

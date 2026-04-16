@@ -27777,6 +27777,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1244018358}
+  - {fileID: 1579240363}
   m_Father: {fileID: 1150880721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -54123,6 +54124,7 @@ MonoBehaviour:
   score: {fileID: 0}
   settingIcon: {fileID: 0}
   insuff: {fileID: 204806898}
+  mobilecontrollerPanel: {fileID: 1691330476}
 --- !u!224 &1150880721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61674,7 +61676,7 @@ Transform:
   m_GameObject: {fileID: 1320191169}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3917394, y: 0.09999943, z: -10}
+  m_LocalPosition: {x: -2.999372, y: 0.09999943, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72501,11 +72503,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 712246476}
-  m_Father: {fileID: 1691330477}
+  m_Father: {fileID: 512645185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 73.75244, y: -56.36328}
+  m_AnchoredPosition: {x: 73.7422, y: -56.369083}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579240364
@@ -77481,7 +77483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1691330477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77494,7 +77496,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1579240363}
   - {fileID: 1424617250}
   - {fileID: 1403843159}
   - {fileID: 41472820}
@@ -87052,7 +87053,7 @@ Transform:
   m_GameObject: {fileID: 1914295717}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3917394, y: 0.09999943, z: -10}
+  m_LocalPosition: {x: -2.999372, y: 0.09999943, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
