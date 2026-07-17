@@ -9,6 +9,7 @@ using System;
 public class AddManager : MonoBehaviour
 {
     public static AddManager Instance;
+    public GameObject checkInternet;
     private InterstitialAd interstitialAd;
     //private BannerView bannerView;
     private RewardedAd rewardedAd;
@@ -143,11 +144,17 @@ public class AddManager : MonoBehaviour
         }
         else
         {
-
+            StartCoroutine(CheckInternet());
             Debug.Log("Rewarded Ad not ready.");
             
 
             
         }
+    }
+    IEnumerator CheckInternet()
+    {
+        checkInternet.SetActive(true);
+        yield return new WaitForSeconds(1);
+        checkInternet.SetActive(false);
     }
 }
