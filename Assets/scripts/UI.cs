@@ -1,11 +1,12 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
     [SerializeField]private GameObject MainMenu;
-    [SerializeField]private GameObject GameOver;
+    public GameObject GameOver;
     [SerializeField]private GameObject Settings;
     [SerializeField]private MonoBehaviour movement;
     [SerializeField]private GameObject score;
@@ -61,8 +62,10 @@ public class UI : MonoBehaviour
     }
     public void Restart()
     {
+
         SkipMenu=true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AddManager.Instance.ShowRetryAd();
     }
     public void ShowSettings()
     {
@@ -94,6 +97,15 @@ public class UI : MonoBehaviour
         }
         Settings.SetActive(false);
         insuff.Insufficient.SetActive(false);
+    }
+    public void Continue()
+    {
+
+        movement.gameObject.transform.position = GameManager.instance.currentCheckPosition;
+        movement.gameObject.SetActive(true);
+        GameOver.SetActive(false);
+        AddManager.Instance.ShowRewardedAd();
+        
     }
     
 

@@ -89,9 +89,9 @@ public class movement : MonoBehaviour
         GameObject p=Instantiate(deathparticles,transform.position,Quaternion.identity);
         p.GetComponent<ParticleSystem>().Play();
         
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
-    // ================= MOBILE BUTTON FUNCTIONS =================
+
 public void MoveLeft()
 {
     mobileInput = -1f;

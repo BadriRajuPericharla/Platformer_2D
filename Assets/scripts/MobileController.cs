@@ -48,8 +48,7 @@ public class MobileController : MonoBehaviour
     public void Jump()
     {
         if (player == null) return;
-
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+            Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
         if (rb != null)
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
