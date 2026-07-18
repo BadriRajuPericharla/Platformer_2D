@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -13,7 +14,12 @@ public class UI : MonoBehaviour
     [SerializeField]private GameObject settingIcon;
     [SerializeField]private LevelCompletion insuff;
     [SerializeField]private GameObject mobilecontrollerPanel;
-    
+    [SerializeField] private GameObject LevelsPanel;
+    [SerializeField] private Button level1Btn;
+    [SerializeField] private Button level2Btn;
+    [SerializeField] private Button level3Btn;
+    [SerializeField]private Button level4Btn;
+    private int level = 0;
     
     static bool SkipMenu=false;
     
@@ -39,6 +45,34 @@ public class UI : MonoBehaviour
             }
             
         }
+        level = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        if (level == 2)
+        {
+            level2Btn.enabled = true;
+            Image image = level2Btn.GetComponent<Image>();
+            Color color = image.color;
+            color.a = 1f;
+            image.color = color;
+            
+        }
+        if (level == 3)
+       {
+            level3Btn.enabled = true;
+            Image image = level3Btn.GetComponent<Image>();
+            Color color = image.color;
+            color.a = 1f;
+            image.color = color;
+            
+        }
+        if (level == 4)
+        {
+            level4Btn.enabled = true;
+            Image image = level4Btn.GetComponent<Image>();
+            Color color = image.color;
+            color.a = 1f;
+            image.color = color;
+            
+        }
     }
 
     
@@ -53,7 +87,7 @@ public class UI : MonoBehaviour
     public void Play()
     {
         SkipMenu=true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelsPanel.SetActive(true);
        
     }
     public void Quit()
@@ -64,7 +98,6 @@ public class UI : MonoBehaviour
     {
 
         SkipMenu=true;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         AddManager.Instance.ShowRetryAd();
     }
     public void ShowSettings()
@@ -84,7 +117,43 @@ public class UI : MonoBehaviour
     public void Next()
     {
         SkipMenu = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+
+        level = PlayerPrefs.GetInt("UnlockedLevel", 0);
+
+        if (level < 5)
+        {
+            level++;
+            PlayerPrefs.SetInt("UnlockedLevel", level);
+            PlayerPrefs.Save();
+        }
+        if (level == 2)
+        {
+            level2Btn.enabled = true;
+            Image image = level2Btn.GetComponent<Image>();
+            Color color = image.color;
+            color.a = 1f;
+            image.color = color;
+
+        }
+        if (level == 3)
+        {
+            level3Btn.enabled = true;
+            Image image = level3Btn.GetComponent<Image>();
+            Color color = image.color;
+            color.a = 1f;
+            image.color = color;
+
+        }
+        if (level == 4)
+        {
+            level4Btn.enabled = true;
+            Image image = level4Btn.GetComponent<Image>();
+            Color color = image.color;
+            color.a = 1f;
+            image.color = color;
+
+        }
+        LevelsPanel.SetActive(true);
     }
     public void Replay()
     {
@@ -108,7 +177,27 @@ public class UI : MonoBehaviour
         AddManager.Instance.ShowRewardedAd();
         
     }
-    
+    public void Level1()
+    {
+        SkipMenu = true;
+        SceneManager.LoadScene(0);
+    }
+    public void Level2()
+    {
+        SkipMenu = true;
+        SceneManager.LoadScene(1);
+    }
+    public void Level3()
+    {
+        SkipMenu = true;
+        SceneManager.LoadScene(2);
+    }
+    public void Level4()
+    {
+        SkipMenu = true;
+        SceneManager.LoadScene(3);
+    }
+
 
 
 }
