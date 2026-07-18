@@ -174,9 +174,7 @@ public class UI : MonoBehaviour
     public void Continue()
     {
 
-        movement.gameObject.transform.position = GameManager.instance.currentCheckPosition;
-        movement.gameObject.SetActive(true);
-        GameOver.SetActive(false);
+        
         AddManager.Instance.ShowRewardedAd();
         
     }
@@ -199,6 +197,12 @@ public class UI : MonoBehaviour
     {
         SkipMenu = true;
         SceneManager.LoadScene(3);
+    }
+    public void RevivePlayer()
+    {
+        movement.gameObject.transform.position = GameManager.instance.currentCheckPosition;
+        movement.gameObject.SetActive(true);
+        GameOver.SetActive(false);
     }
 
 

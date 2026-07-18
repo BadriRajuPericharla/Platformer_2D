@@ -11,6 +11,7 @@ public class AddManager : MonoBehaviour
     public static AddManager Instance;
     public GameObject checkInternet;
     private InterstitialAd interstitialAd;
+    public UI ui;
     //private BannerView bannerView;
     private RewardedAd rewardedAd;
     private Action rewardAction;
@@ -90,7 +91,7 @@ public class AddManager : MonoBehaviour
                 interstitialAd.OnAdFullScreenContentClosed += () =>
                 {
                     LoadInterstitial();
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 };
             });
     }
@@ -132,10 +133,12 @@ public class AddManager : MonoBehaviour
     }
     public void ShowRewardedAd()
     {
-      
+
         if (rewardedAd != null &&
             rewardedAd.CanShowAd())
+
         {
+            ui.RevivePlayer();
             rewardedAd.Show((Reward reward) =>
             {
                 Debug.Log("Reward Earned!");
