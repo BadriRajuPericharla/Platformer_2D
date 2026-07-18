@@ -19,7 +19,7 @@ public class UI : MonoBehaviour
     [SerializeField] private Button level2Btn;
     [SerializeField] private Button level3Btn;
     [SerializeField]private Button level4Btn;
-    private int level = 0;
+    private int level = 1;
     
     static bool SkipMenu=false;
     
@@ -45,33 +45,34 @@ public class UI : MonoBehaviour
             }
             
         }
-        level = PlayerPrefs.GetInt("UnlockedLevel", 1);
-        if (level == 2)
+       level = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        Debug.Log(level);
+        if (level >= 2)
         {
             level2Btn.enabled = true;
             Image image = level2Btn.GetComponent<Image>();
             Color color = image.color;
             color.a = 1f;
             image.color = color;
-            
+
         }
-        if (level == 3)
-       {
+        if (level >= 3)
+        {
             level3Btn.enabled = true;
             Image image = level3Btn.GetComponent<Image>();
             Color color = image.color;
             color.a = 1f;
             image.color = color;
-            
+
         }
-        if (level == 4)
+        if (level >= 4)
         {
             level4Btn.enabled = true;
             Image image = level4Btn.GetComponent<Image>();
             Color color = image.color;
             color.a = 1f;
             image.color = color;
-            
+
         }
     }
 
@@ -106,7 +107,7 @@ public class UI : MonoBehaviour
         {
             MainMenu.SetActive(false);
         }
-        
+        movement.enabled = false;
         GameOver.SetActive(false);
         Settings.SetActive(true);
     }
@@ -117,16 +118,16 @@ public class UI : MonoBehaviour
     public void Next()
     {
         SkipMenu = true;
-
-        level = PlayerPrefs.GetInt("UnlockedLevel", 0);
-
+        movement.enabled = false;
+        level = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        
         if (level < 5)
         {
             level++;
             PlayerPrefs.SetInt("UnlockedLevel", level);
             PlayerPrefs.Save();
         }
-        if (level == 2)
+        if (level >= 2)
         {
             level2Btn.enabled = true;
             Image image = level2Btn.GetComponent<Image>();
@@ -135,7 +136,7 @@ public class UI : MonoBehaviour
             image.color = color;
 
         }
-        if (level == 3)
+        if (level >= 3)
         {
             level3Btn.enabled = true;
             Image image = level3Btn.GetComponent<Image>();
@@ -144,7 +145,7 @@ public class UI : MonoBehaviour
             image.color = color;
 
         }
-        if (level == 4)
+        if (level >= 4)
         {
             level4Btn.enabled = true;
             Image image = level4Btn.GetComponent<Image>();
@@ -153,6 +154,7 @@ public class UI : MonoBehaviour
             image.color = color;
 
         }
+        
         LevelsPanel.SetActive(true);
     }
     public void Replay()
@@ -166,6 +168,7 @@ public class UI : MonoBehaviour
             mobilecontrollerPanel.SetActive(true);
         }
         Settings.SetActive(false);
+        movement.enabled = true;
         insuff.Insufficient.SetActive(false);
     }
     public void Continue()
