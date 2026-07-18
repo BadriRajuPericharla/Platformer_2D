@@ -1014,10 +1014,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b85d19fcb2f20d4dbe1ad117065e942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelComplete: {fileID: 0}
+  levelComplete: {fileID: 961802606}
   movement: {fileID: 1643068945}
   keysNeeded: 9
-  Insufficient: {fileID: 0}
+  Insufficient: {fileID: 56966364}
 --- !u!1 &14772567
 GameObject:
   m_ObjectHideFlags: 0
@@ -9838,10 +9838,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b85d19fcb2f20d4dbe1ad117065e942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelComplete: {fileID: 0}
+  levelComplete: {fileID: 961802606}
   movement: {fileID: 1643068945}
   keysNeeded: 9
-  Insufficient: {fileID: 0}
+  Insufficient: {fileID: 56966364}
 --- !u!1 &206046021
 GameObject:
   m_ObjectHideFlags: 0

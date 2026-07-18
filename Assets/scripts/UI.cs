@@ -83,6 +83,7 @@ public class UI : MonoBehaviour
     }
     public void Next()
     {
+        SkipMenu = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     public void Replay()
