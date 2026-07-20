@@ -12,15 +12,14 @@ public class AddManager : MonoBehaviour
     public GameObject checkInternet;
     private InterstitialAd interstitialAd;
     public UI ui;
-    //private BannerView bannerView;
+    private BannerView bannerView;
     private RewardedAd rewardedAd;
-    private Action rewardAction;
     private static int RetryCount = 0;
     private string interstitialId =
         "ca-app-pub-9565881819222312/2153951234";
 
-    //private string bannerId =
-    //    "ca-app-pub-9565881819222312/5134316292";
+    private string bannerId =
+        "ca-app-pub-9565881819222312/1619402644";
 
     private string rewardedId =
         "ca-app-pub-9565881819222312/1811858817";
@@ -41,36 +40,36 @@ public class AddManager : MonoBehaviour
             LoadRewardedAd();
         });
     }
-    //public void LoadBanner()
-    //{
-    //    if (bannerView != null)
-    //    {
-    //        bannerView.Destroy();
-    //    }
-    //    bannerView = new BannerView(
-    //        bannerId,
-    //        AdSize.Banner,
-    //        AdPosition.Top);
-    //    AdRequest request = new AdRequest();
-    //    bannerView.LoadAd(request);
-    //}
-    //public void ShowBanner()
-    //{
-    //    if (bannerView == null)
-    //    {
-    //        LoadBanner();
-    //        return;
-    //    }
-    //    bannerView.Show();
-    //}
-    //public void HideBanner()
-    //{
-    //    if (bannerView != null)
-    //    {
-    //        bannerView.Destroy();
-    //        bannerView = null;
-    //    }
-    //}
+    public void LoadBanner()
+    {
+        if (bannerView != null)
+        {
+            bannerView.Destroy();
+        }
+        bannerView = new BannerView(
+            bannerId,
+            AdSize.Banner,
+            AdPosition.Top);
+        AdRequest request = new AdRequest();
+        bannerView.LoadAd(request);
+    }
+    public void ShowBanner()
+    {
+        if (bannerView == null)
+        {
+            LoadBanner();
+            return;
+        }
+        bannerView.Show();
+    }
+    public void HideBanner()
+    {
+        if (bannerView != null)
+        {
+            bannerView.Destroy();
+            bannerView = null;
+        }
+    }
     void LoadInterstitial()
     {
         if (interstitialAd != null)
@@ -98,7 +97,7 @@ public class AddManager : MonoBehaviour
     public void ShowRetryAd()
     {
         RetryCount++;
-        if (RetryCount % 2 == 0 && interstitialAd != null &&
+        if (RetryCount % 3 == 0 && interstitialAd != null &&
             interstitialAd.CanShowAd())
         {
             interstitialAd.Show();

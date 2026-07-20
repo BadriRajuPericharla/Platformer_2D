@@ -80,6 +80,7 @@ public class movement : MonoBehaviour
                 Debug.Log("hit trap");
                 die();
                 GameOver.SetActive(true);
+                AddManager.Instance.ShowBanner();
                 audioSource.PlayOneShot(hit_clip);
                 break;
         }

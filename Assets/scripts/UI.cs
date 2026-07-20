@@ -84,6 +84,7 @@ public class UI : MonoBehaviour
     public void showMainMenu()
     {
         SceneManager.LoadScene(0);
+        AddManager.Instance.HideBanner();
     }
     public void Play()
     {
@@ -108,11 +109,13 @@ public class UI : MonoBehaviour
             MainMenu.SetActive(false);
         }
         movement.enabled = false;
+        AddManager.Instance.HideBanner();
         GameOver.SetActive(false);
         Settings.SetActive(true);
     }
     public void Home()
     {
+        AddManager.Instance.HideBanner();
         showMainMenu();
     }
     public void Next()
@@ -174,7 +177,7 @@ public class UI : MonoBehaviour
     public void Continue()
     {
 
-        
+        AddManager.Instance.HideBanner();
         AddManager.Instance.ShowRewardedAd();
         
     }
